@@ -1,8 +1,5 @@
 package nl.yarince.practiceexamgenerator
 
-import org.json4s.JsonDSL
-import org.json4s.jackson.JsonMethods._
-
 /**
   * Created by yarince on 26/06/2018.
   */
@@ -19,13 +16,13 @@ object Runner {
     )
 
 
-    weightedExams.foreach(it => println(it.weight))
+//    weightedExams.foreach(it => println(it.weight))
     weightedExams.foreach(println)
-    weightedExams.foreach(it => {
-      it.groupedQuestions.foreach(question => {
-        println(question._1 + " -> " + question._2)
-      })
-      println
-    })
+//    weightedExams.foreach(it => {
+//      it.groupedQuestions.foreach(question => {
+//        println(question._1 + " -> " + question._2)
+//      })
+//      println
+//    })
   }
 }

@@ -4,15 +4,15 @@ package nl.yarince.practiceexamgenerator
   * Created by yarince on 26/06/2018.
   */
 class Calculation {
-  def calculateCategoryRelevance(examResults: List[ExamResult], categoryPercentageList: List[CategoryPercentage]) = {
+  def calculateCategoryRelevance(examResults: List[ExamResult], categoryPercentageList: List[CategoryPercentage]): List[WeightedExam] = {
     val weightedExams = getWeightedExams(examResults)
 
-    categoryPercentageList.foreach { category =>
-      val perfectScore = getPerfectScore(weightedExams, category)
-
-      println(perfectScore)
-
-    }
+//    categoryPercentageList.foreach { category =>
+//      val perfectScore = getPerfectScore(weightedExams, category)
+//
+//      println(perfectScore)
+//
+//    }
 
     weightedExams
   }
@@ -48,10 +48,11 @@ class Calculation {
   // TODO Hier doe ik het fout met het groupen by questionType. Dit moet natuurlijk Category zijn. :/
   def getWeightedExams(examResults: List[ExamResult]): List[WeightedExam] = {
     examResults.zipWithIndex.map { case (it, current) =>
+//      it.questions.foreach {question => question.categories.sortBy(string => string)}
       WeightedExam(
         it.examId,
         calculateWeight(examResults, current),
-        it.questions.groupBy(question => question.questionType)
+        it.questions.groupBy(question => question.categories.sortBy(string => string))
       )
     }
   }

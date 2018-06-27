@@ -23,7 +23,7 @@ case class ExamResult(
 case class WeightedExam(
                          examId: Int,
                          weight: Double,
-                         groupedQuestions: Map[String, List[ReviewedQuestion]]
+                         groupedQuestions: Map[List[String], List[ReviewedQuestion]]
                        )
 
 case class CategoryPercentage(
