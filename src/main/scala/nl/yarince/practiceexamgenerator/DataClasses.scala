@@ -16,14 +16,14 @@ case class AnsweredQuestion(
 
 case class ExamResult(
                        examId: Int,
-                       examDate: Option[java.util.Date],
-                       questions: List[ReviewedQuestion]
+                       studentId: Int,
+                       questions: List[ReviewedQuestion],
+                       examDate: Option[Date]
                      )
 
 case class WeightedExam(
                          examId: Int,
-                         weight: Double,
-                         groupedQuestions: Map[List[String], List[ReviewedQuestion]]
+                         weight: Double
                        )
 
 case class CategoryPercentage(
