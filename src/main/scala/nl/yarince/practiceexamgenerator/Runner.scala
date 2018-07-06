@@ -13,7 +13,7 @@ object Runner {
     val categoryPercentages = dataAccess.getCategories(courseId)
     println(categoryPercentages)
 
-    val weightedExams = calculation.calculateCategoryRelevance(
+    val weightedExams = calculation.getAllCategoryRelevance(
       dataAccess.getAssessedExams(courseId).filter(_.studentId == studentNr),
       categoryPercentages
     )

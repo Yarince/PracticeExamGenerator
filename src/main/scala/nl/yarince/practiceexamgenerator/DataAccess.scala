@@ -11,8 +11,7 @@ class DataAccess {
   def getCategories(courseId: Int): List[CategoryPercentage] = {
     // Get all categories from the assessed exams
     getAssessedExams(courseId)
-      .map(r => r.questions.map(q => q.categories).reduce((acc, list) => acc ++ list)).reduce((acc, list) => acc ++ list)
-      .distinct
+      .map(_.questions.map(_.categories).reduce(_ ++ _)).reduce(_ ++ _).distinct
       .foldLeft(List[CategoryPercentage]()) { (category, catPercentage) => category ++ List(CategoryPercentage(catPercentage))}
   }
 
