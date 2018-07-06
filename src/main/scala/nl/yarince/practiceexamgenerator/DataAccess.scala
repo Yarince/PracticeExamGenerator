@@ -36,33 +36,59 @@ class DataAccess {
                       ReviewedQuestion(8, resultWasGood = false, "Vraag over dingen", List("Fietsen", "Fietsen"), "MultipleChoiceQuestion")), None),
       ExamResult(2, 1, List(
                       ReviewedQuestion(9, resultWasGood = false, "Vraag over DCAR", List("Trees", "Algorithms"), "BigOhQuestion"),
-                      ReviewedQuestion(10, resultWasGood = false, "Vraag over DCAR", List("Bomen", "Fietsen"), "GraphQuestion"),
+                      ReviewedQuestion(10, resultWasGood = true, "Vraag over DCAR", List("Bomen", "Fietsen"), "GraphQuestion"),
                       ReviewedQuestion(11, resultWasGood = false, "Vraag over ASR", List("Trees", "Algorithms"), "OpenQuestion"),
                       ReviewedQuestion(12, resultWasGood = false, "Vraag over ATAM", List("AVL", "Bomen"), "MultipleChoiceQuestion"),
-                      ReviewedQuestion(13, resultWasGood = true, "Vraag over ATAM", List("Algorithms", "Trees"), "DrawQuestion"),
-                      ReviewedQuestion(14, resultWasGood = true, "Vraag over ATAM", List("Graph", "Bomen"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(13, resultWasGood = false, "Vraag over ATAM", List("Algorithms", "Trees"), "DrawQuestion"),
+                      ReviewedQuestion(14, resultWasGood = false, "Vraag over ATAM", List("Graph", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(15, resultWasGood = false, "Vraag over DCAR", List("ASD", "ASD"), "GraphQuestion"),
                       ReviewedQuestion(16, resultWasGood = true, "Vraag over DCAR", List("AVL", "Algorithms"), "MultipleChoiceQuestion")), None),
-      ExamResult(3, 1, List(
+      ExamResult(3, 2, List(
                       ReviewedQuestion(17, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
                       ReviewedQuestion(34, resultWasGood = true, "Vraag over DCAR", List("Bomen", "True"), "TreeQuestion"),
                       ReviewedQuestion(18, resultWasGood = true, "Vraag over ASR", List("Graph", "Trees"), "BigOhQuestion"),
-                      ReviewedQuestion(19, resultWasGood = false, "Vraag over ASR", List("Graph", "ASD"), "BigOhQuestion"),
+                      ReviewedQuestion(19, resultWasGood = true, "Vraag over ASR", List("Graph", "ASD"), "BigOhQuestion"),
                       ReviewedQuestion(20, resultWasGood = false, "Vraag over dingen", List("Fietsen", "Algorithms"), "GraphQuestion"),
                       ReviewedQuestion(21, resultWasGood = true, "Vraag over ASR", List("Trees", "AVL"), "DrawQuestion"),
                       ReviewedQuestion(22, resultWasGood = false, "Vraag over ASR", List("Fietsen", "Bomen"), "GraphQuestion"),
                       ReviewedQuestion(23, resultWasGood = true, "Vraag over ASR", List("Bomen", "Fietsen"), "GraphQuestion"),
                       ReviewedQuestion(24, resultWasGood = true, "Vraag over ASR", List("AVL", "Algorithms"), "GraphQuestion")), None),
-      ExamResult(4, 1, List(
+      ExamResult(4, 2, List(
                       ReviewedQuestion(25, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
                       ReviewedQuestion(26, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
-                      ReviewedQuestion(27, resultWasGood = false, "Vraag over ATAM", List("Graph", "Bomen"), "OpenQuestion"),
+                      ReviewedQuestion(27, resultWasGood = true, "Vraag over ATAM", List("Graph", "Bomen"), "OpenQuestion"),
                       ReviewedQuestion(28, resultWasGood = false, "Vraag over ASR", List("AVL", "Fietsen"), "TreeQuestion"),
-                      ReviewedQuestion(29, resultWasGood = true, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(29, resultWasGood = false, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(30, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(31, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
-                      ReviewedQuestion(32, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")
-                    ), None)
+                      ReviewedQuestion(32, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
+      ExamResult(5, 3, List(
+                      ReviewedQuestion(35, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
+                      ReviewedQuestion(36, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
+                      ReviewedQuestion(37, resultWasGood = true, "Vraag over ATAM", List("Graph", "Bomen"), "OpenQuestion"),
+                      ReviewedQuestion(38, resultWasGood = false, "Vraag over ASR", List("AVL", "Fietsen"), "TreeQuestion"),
+                      ReviewedQuestion(39, resultWasGood = false, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(40, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(41, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
+                      ReviewedQuestion(42, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
+      ExamResult(6, 4, List(
+                      ReviewedQuestion(43, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
+                      ReviewedQuestion(44, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
+                      ReviewedQuestion(45, resultWasGood = true, "Vraag over ATAM", List("Graph", "Bomen"), "OpenQuestion"),
+                      ReviewedQuestion(46, resultWasGood = false, "Vraag over ASR", List("AVL", "Fietsen"), "TreeQuestion"),
+                      ReviewedQuestion(47, resultWasGood = false, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(48, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(49, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
+                      ReviewedQuestion(50, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
+      ExamResult(7, 5, List(
+                      ReviewedQuestion(51, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
+                      ReviewedQuestion(52, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
+                      ReviewedQuestion(53, resultWasGood = false, "Vraag over ATAM", List("Graph", "Bomen"), "OpenQuestion"),
+                      ReviewedQuestion(54, resultWasGood = false, "Vraag over ASR", List("AVL", "Fietsen"), "TreeQuestion"),
+                      ReviewedQuestion(55, resultWasGood = true, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(56, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(57, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
+                      ReviewedQuestion(58, resultWasGood = false, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None)
     )
   }
 }

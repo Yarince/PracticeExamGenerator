@@ -17,6 +17,8 @@ class CategoryRelevanceCalculation {
   }
 
   def calculateCategoryRelevance(examResults: List[ExamResult], weightedExams: List[WeightedExam], categoryPercentage: CategoryPercentage): Double = {
+    // TODO check if category isn't answered by student. Then give 100%
+
     if (getPerfectScore(examResults, categoryPercentage)) return MAGIC_NUMBER
     categoryPercentage.percentage = weightedExams.foldLeft(0.0) { (percentage, exam) =>
       // Get all questions for the current category
