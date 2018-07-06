@@ -1,20 +1,19 @@
-package nl.yarince.practiceexamgenerator
+package nl.yarince.practiceexamgenerator.calculation
+
+import nl.yarince.practiceexamgenerator.{CategoryPercentage, ExamResult, WeightedExam}
 
 /**
   * Created by yarince on 26/06/2018.
   */
-class Calculation {
+class CategoryRelevanceCalculation {
 
   val MAGIC_NUMBER: Double = 10
 
-  def getAllCategoryRelevance(examResults: List[ExamResult], categoryPercentageList: List[CategoryPercentage]): List[WeightedExam] = {
-    val weightedExams = getWeightedExams(examResults)
-
+  def getAllCategoryRelevance(examResults: List[ExamResult], categoryPercentageList: List[CategoryPercentage]): List[CategoryPercentage] = {
     categoryPercentageList.foreach { category =>
-      category.percentage = calculateCategoryRelevance(examResults, weightedExams, category)
-      println(category)
+      category.percentage = calculateCategoryRelevance(examResults, getWeightedExams(examResults), category)
     }
-    weightedExams
+    categoryPercentageList
   }
 
   def calculateCategoryRelevance(examResults: List[ExamResult], weightedExams: List[WeightedExam], categoryPercentage: CategoryPercentage): Double = {
@@ -47,14 +46,8 @@ class Calculation {
     perfectScore
   }
 
-  def getWeightedExams(examResults: List[ExamResult]): List[WeightedExam] = {
-    examResults.zipWithIndex.map { case (it, current) =>
-      WeightedExam(
-        it.examId,
-        calculateWeight(examResults, current)
-      )
-    }
-  }
+  def getWeightedExams(examResults: List[ExamResult]): List[WeightedExam] =
+    examResults.zipWithIndex.map { case (it, current) => WeightedExam(it.examId, calculateWeight(examResults, current)) }
 
   private def calculateWeight(examResults: List[ExamResult], current: Int) =
     100 / examResults.zipWithIndex.map { case (_, index) => Math.pow(2.0, index) }.sum * Math.pow(2, current)
