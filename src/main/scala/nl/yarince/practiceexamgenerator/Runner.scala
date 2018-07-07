@@ -9,7 +9,6 @@ object Runner {
   def main(args: Array[String]): Unit = {
     val categoryRelevanceCalculation = new CategoryRelevanceCalculation()
     val questionRelevanceCalculation = new QuestionRelevanceCalculation()
-
     val dataAccess = new DataAccess()
     val courseId = 1
     val studentId = 1
@@ -18,19 +17,11 @@ object Runner {
       dataAccess.getAssessedExams(courseId).filter(_.studentId == studentId),
       dataAccess.getCategories(courseId)
     )
-
     val questionRelevance = questionRelevanceCalculation.getAllQuestionRelevance(
       dataAccess.getAssessedExams(courseId).filter(_.studentId != studentId)
     )
 
-
-//    weightedExams.foreach(it => println(it.weight))
-    categoryRelevance.foreach(println)
-//    weightedExams.foreach(it => {
-//      it.groupedQuestions.foreach(question => {
-//        println(question._1 + " -> " + question._2)
-//      })
-//      println
-//    })
+//    questionRelevance.foreach(println)
+//    categoryRelevance.foreach(println)
   }
 }
