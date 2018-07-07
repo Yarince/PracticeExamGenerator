@@ -88,6 +88,15 @@ class DataAccess {
                       ReviewedQuestion(55, resultWasGood = true, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(56, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(57, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
+                      ReviewedQuestion(58, resultWasGood = false, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
+      ExamResult(6, 4, List(
+                      ReviewedQuestion(51, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
+                      ReviewedQuestion(52, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
+                      ReviewedQuestion(53, resultWasGood = false, "Vraag over ATAM", List("Graph", "Bomen"), "OpenQuestion"),
+                      ReviewedQuestion(54, resultWasGood = false, "Vraag over ASR", List("AVL", "Fietsen"), "TreeQuestion"),
+                      ReviewedQuestion(55, resultWasGood = true, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(56, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
+                      ReviewedQuestion(57, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
                       ReviewedQuestion(58, resultWasGood = false, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None)
     )
   }
