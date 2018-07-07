@@ -17,9 +17,11 @@ class CategoryRelevanceCalculation {
   }
 
   def calculateCategoryRelevance(examResults: List[ExamResult], weightedExams: List[WeightedExam], categoryPercentage: CategoryPercentage): Double = {
-    // TODO check if category isn't answered by student. Then give 100%
-
+    // If the category isn't answered by the current student give it a 100% relevance
+    if (examResults.map(_.questions.filter(_.categories.exists(_ == categoryPercentage.category))).reduce(_ ++ _).isEmpty) return 100.0
+    // If the category is answered perfectly give it a set relevance
     if (getPerfectScore(examResults, categoryPercentage)) return MAGIC_NUMBER
+
     categoryPercentage.percentage = weightedExams.foldLeft(0.0) { (percentage, exam) =>
       // Get all questions for the current category
       val questionsForCategory = examResults.map(_.questions.filter(_.categories.contains(categoryPercentage.category))).reduce(_ ++ _)
@@ -39,7 +41,7 @@ class CategoryRelevanceCalculation {
   def getPerfectScore(examResults: List[ExamResult], categoryPercentage: CategoryPercentage): Boolean = {
     var perfectScore: Boolean = true
     examResults.foldLeft() { (_, exam) =>
-      // If the questionType is already imperfect skip it
+      // If the category is already imperfect skip it
       if (!perfectScore) return perfectScore
       perfectScore = exam.questions
         .find(_.categories.contains(categoryPercentage.category))
