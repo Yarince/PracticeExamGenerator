@@ -4,21 +4,21 @@ package nl.yarince.practiceexamgenerator
   * Created by yarince on 26/06/2018.
   */
 
-import java.sql.Date
+import java.util.Date
 
 case class AnsweredQuestion(
                              questionId: Int,
                              questionText: String,
                              categories: List[String],
                              questionType: String,
-                             answeredOn: Option[java.util.Date]
+                             answeredOn: Option[Date]
                            )
 
 case class ExamResult(
                        examId: Int,
                        studentId: Int,
                        questions: List[ReviewedQuestion],
-                       examDate: Option[Date]
+                       examDate: Date
                      )
 
 case class WeightedExam(

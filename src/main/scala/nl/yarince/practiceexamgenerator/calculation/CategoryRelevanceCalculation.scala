@@ -9,9 +9,9 @@ class CategoryRelevanceCalculation {
 
   val MAGIC_NUMBER: Double = 10
 
-  def getAllCategoryRelevance(examResults: List[ExamResult], categoryPercentageList: List[CategoryPercentage]): List[CategoryPercentage] = {
+  def getAllCategoryRelevance(examResults: List[ExamResult], categoryPercentageList: List[CategoryPercentage], weightedExams: List[WeightedExam]): List[CategoryPercentage] = {
     categoryPercentageList.foreach { category =>
-      category.percentage = calculateCategoryRelevance(examResults, getWeightedExams(examResults), category)
+      category.percentage = calculateCategoryRelevance(examResults, weightedExams, category)
     }
     categoryPercentageList
   }
@@ -49,10 +49,4 @@ class CategoryRelevanceCalculation {
     }
     perfectScore
   }
-
-  def getWeightedExams(examResults: List[ExamResult]): List[WeightedExam] =
-    examResults.zipWithIndex.map { case (it, current) => WeightedExam(it.examId, calculateWeight(examResults, current)) }
-
-  private def calculateWeight(examResults: List[ExamResult], current: Int) =
-    100 / examResults.zipWithIndex.map { case (_, index) => Math.pow(2.0, index) }.sum * Math.pow(2, current)
 }

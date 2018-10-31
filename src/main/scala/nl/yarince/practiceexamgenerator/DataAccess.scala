@@ -1,9 +1,8 @@
 package nl.yarince.practiceexamgenerator
 
-import org.json4s.DefaultFormats
-import org.json4s.jackson.JsonMethods.parse
-import scala.io.Source
+import java.util.{Calendar, Date}
 
+import org.json4s.DefaultFormats
 /**
   * Created by yarince on 26/06/2018.
   */
@@ -15,14 +14,19 @@ class DataAccess {
       .foldLeft(List[CategoryPercentage]()) { (category, catPercentage) => category ++ List(CategoryPercentage(catPercentage))}
   }
 
+  import java.util.Calendar
+
+  def addHoursToJavaUtilDate(date: Date, days: Int): Date = {
+    val calendar = Calendar.getInstance
+    calendar.setTime(date)
+    calendar.add(Calendar.DAY_OF_MONTH, days)
+    calendar.getTime
+  }
+
   implicit val formats = DefaultFormats
 
   def getAssessedExams(courseId: Int): List[ExamResult] = {
-    //    parse(Source.fromFile(
-    //      "C:\\Users\\yarin\\IntelliJProjects\\PracticeExamGenerator" +
-    //        "\\src\\main\\scala\\nl\\yarince\\practiceexamgenerator\\" +
-    //        "resources\\question+result.json").mkString).extract[List[ExamResult]]
-
+    val calendar = Calendar.getInstance
     List(
       ExamResult(1, 1, List(
                       ReviewedQuestion(1, resultWasGood = true, "Vraag over DCAR", List("ASD", "ASD"), "DrawQuestion"),
@@ -33,7 +37,7 @@ class DataAccess {
                       ReviewedQuestion(33, resultWasGood = true, "Vraag over ATAM", List("Fietsen", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(6, resultWasGood = false, "Vraag over dingen", List("Graph", "ASD"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(7, resultWasGood = true, "Vraag over ATAM", List("Graph", "Graph"), "TreeQuestion"),
-                      ReviewedQuestion(8, resultWasGood = false, "Vraag over dingen", List("Fietsen", "Fietsen"), "MultipleChoiceQuestion")), None),
+                      ReviewedQuestion(8, resultWasGood = false, "Vraag over dingen", List("Fietsen", "Fietsen"), "MultipleChoiceQuestion")), calendar.getTime ),
       ExamResult(2, 1, List(
                       ReviewedQuestion(9, resultWasGood = false, "Vraag over DCAR", List("Trees", "Algorithms"), "BigOhQuestion"),
                       ReviewedQuestion(10, resultWasGood = true, "Vraag over DCAR", List("Bomen", "Fietsen"), "GraphQuestion"),
@@ -42,7 +46,7 @@ class DataAccess {
                       ReviewedQuestion(13, resultWasGood = false, "Vraag over ATAM", List("Algorithms", "Trees"), "DrawQuestion"),
                       ReviewedQuestion(14, resultWasGood = false, "Vraag over ATAM", List("Graph", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(15, resultWasGood = false, "Vraag over DCAR", List("ASD", "ASD"), "GraphQuestion"),
-                      ReviewedQuestion(16, resultWasGood = true, "Vraag over DCAR", List("AVL", "Algorithms"), "MultipleChoiceQuestion")), None),
+                      ReviewedQuestion(16, resultWasGood = true, "Vraag over DCAR", List("AVL", "Algorithms"), "MultipleChoiceQuestion")), addHoursToJavaUtilDate(calendar.getTime,1)),
       ExamResult(3, 2, List(
                       ReviewedQuestion(17, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
                       ReviewedQuestion(34, resultWasGood = true, "Vraag over DCAR", List("Bomen", "True"), "TreeQuestion"),
@@ -52,7 +56,7 @@ class DataAccess {
                       ReviewedQuestion(21, resultWasGood = true, "Vraag over ASR", List("Trees", "AVL"), "DrawQuestion"),
                       ReviewedQuestion(22, resultWasGood = false, "Vraag over ASR", List("Fietsen", "Bomen"), "GraphQuestion"),
                       ReviewedQuestion(23, resultWasGood = true, "Vraag over ASR", List("Bomen", "Fietsen"), "GraphQuestion"),
-                      ReviewedQuestion(24, resultWasGood = true, "Vraag over ASR", List("AVL", "Algorithms"), "GraphQuestion")), None),
+                      ReviewedQuestion(24, resultWasGood = true, "Vraag over ASR", List("AVL", "Algorithms"), "GraphQuestion")), calendar.getTime),
       ExamResult(4, 2, List(
                       ReviewedQuestion(25, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
                       ReviewedQuestion(26, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
@@ -61,7 +65,7 @@ class DataAccess {
                       ReviewedQuestion(29, resultWasGood = false, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(30, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(31, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
-                      ReviewedQuestion(32, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
+                      ReviewedQuestion(32, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), addHoursToJavaUtilDate(calendar.getTime,1)),
       ExamResult(5, 3, List(
                       ReviewedQuestion(35, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
                       ReviewedQuestion(36, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
@@ -70,7 +74,7 @@ class DataAccess {
                       ReviewedQuestion(39, resultWasGood = false, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(40, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(41, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
-                      ReviewedQuestion(42, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
+                      ReviewedQuestion(42, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), addHoursToJavaUtilDate(calendar.getTime,1)),
       ExamResult(6, 4, List(
                       ReviewedQuestion(43, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
                       ReviewedQuestion(44, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
@@ -79,7 +83,7 @@ class DataAccess {
                       ReviewedQuestion(47, resultWasGood = false, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(48, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(49, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
-                      ReviewedQuestion(50, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
+                      ReviewedQuestion(50, resultWasGood = true, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), calendar.getTime),
       ExamResult(7, 5, List(
                       ReviewedQuestion(51, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
                       ReviewedQuestion(52, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
@@ -88,8 +92,8 @@ class DataAccess {
                       ReviewedQuestion(55, resultWasGood = true, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(56, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(57, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
-                      ReviewedQuestion(58, resultWasGood = false, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None),
-      ExamResult(6, 4, List(
+                      ReviewedQuestion(58, resultWasGood = false, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), addHoursToJavaUtilDate(calendar.getTime,1)),
+      ExamResult(8, 4, List(
                       ReviewedQuestion(51, resultWasGood = true, "Vraag over ASR", List("ASD", "Algorithms"), "GraphQuestion"),
                       ReviewedQuestion(52, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
                       ReviewedQuestion(53, resultWasGood = false, "Vraag over ATAM", List("Graph", "Bomen"), "OpenQuestion"),
@@ -97,7 +101,7 @@ class DataAccess {
                       ReviewedQuestion(55, resultWasGood = true, "Vraag over DCAR", List("ASD", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(56, resultWasGood = true, "Vraag over ATAM", List("True", "Algorithms"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(57, resultWasGood = false, "Vraag over ASR", List("Graph", "Stuff"), "TreeQuestion"),
-                      ReviewedQuestion(58, resultWasGood = false, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), None)
+                      ReviewedQuestion(58, resultWasGood = false, "Vraag over ATAM", List("Trees", "ASD"), "DrawQuestion")), addHoursToJavaUtilDate(calendar.getTime,2))
     )
   }
 }
