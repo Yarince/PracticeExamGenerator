@@ -46,7 +46,7 @@ class DataAccess {
                       ReviewedQuestion(13, resultWasGood = false, "Vraag over ATAM", List("Algorithms", "Trees"), "DrawQuestion"),
                       ReviewedQuestion(14, resultWasGood = false, "Vraag over ATAM", List("Graph", "Bomen"), "MultipleChoiceQuestion"),
                       ReviewedQuestion(15, resultWasGood = false, "Vraag over DCAR", List("ASD", "ASD"), "GraphQuestion"),
-                      ReviewedQuestion(16, resultWasGood = true, "Vraag over DCAR", List("AVL", "Algorithms"), "MultipleChoiceQuestion")), addHoursToJavaUtilDate(calendar.getTime,1)),
+                      ReviewedQuestion(16, resultWasGood = true, "Vraag over DCAR", List("AVL", "Algorithms"), "MultipleChoiceQuestion")), addHoursToJavaUtilDate(calendar.getTime,3)),
       ExamResult(3, 2, List(
                       ReviewedQuestion(17, resultWasGood = false, "Vraag over DCAR", List("Bomen", "AVL"), "TreeQuestion"),
                       ReviewedQuestion(34, resultWasGood = true, "Vraag over DCAR", List("Bomen", "True"), "TreeQuestion"),
